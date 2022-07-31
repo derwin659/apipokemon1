@@ -44,8 +44,8 @@ public class PokemonController {
         this.detailPokemon = detailPokemon;
     }
 
-
-    @RequestMapping(value = {"/pokemones"}, method = {RequestMethod.GET}, produces = {"application/json"})
+    @GetMapping("/pokemones")
+    @ResponseBody
     public ResponseEntity<?> pokemon(@RequestParam(defaultValue = "20") int offset,@RequestParam(defaultValue = "20") int limit) throws Exception, NoSuchElementException, NullPointerException {
 
         System.out.println(offset);
@@ -71,8 +71,8 @@ public class PokemonController {
         return new ResponseEntity<>(lista, HttpStatus.OK);
 
     }
-
-    @RequestMapping(value = {"/pokemon/detail/{id}"}, method = {RequestMethod.GET}, produces = {"application/json"})
+    @GetMapping("/pokemon/detail/{id}")
+    @ResponseBody
     public ResponseEntity<Lista1> detailPokemon(@PathVariable Integer id) throws Exception, NoSuchElementException, NullPointerException {
         logger.info("****DETAIL POKEMON**********");
         System.out.println(id);
