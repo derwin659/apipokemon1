@@ -22,7 +22,7 @@ import java.util.NoSuchElementException;
 @RestController
 @EnableCaching
 @RequestMapping({"/v1"})
-@CrossOrigin
+@CrossOrigin("*")
 public class PokemonController {
     private static final Logger logger = LoggerFactory.getLogger(PokemonController.class);
 
